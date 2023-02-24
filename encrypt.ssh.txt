@@ -1,0 +1,13 @@
+#! /bin/bash
+
+echo "Enter the file you would like to encrypt"
+read enfile
+
+#take encrypt out and work on tar
+#break up the commands and see what command works
+
+tar cs "$enfile" | openssl enc -aes-256-cbc -e > "$enfile".enc
+
+mv $enfile $enfile.old
+
+echo "$enfile.enc has been encrypted"

@@ -1,0 +1,24 @@
+#! /bin/bash
+
+echo "Enter new names for keyfiles"
+read keyname
+
+echo "Key name you have choosen is $keyname"
+
+
+
+echo "What directory would you like to save keys in?"
+read directory
+
+echo "You have selected to save keys in $directory"
+
+
+password=$(openssl rand -base64 12)
+
+#ssh-keygen -N $password -f $keyname
+
+ssh-keygen -f $directory/$keyname -N $password
+
+echo "Here is your random generated password for keys: $password, please keep safe"
+#write an echo saying where the keys are put in (~/.ssh) rather than asking what directory they want
+#ssh-keygen -N $password -f $keyname

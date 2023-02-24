@@ -1,0 +1,8 @@
+#! /bin/bash
+
+echo "What file do you want to unencrypt?"
+read filen
+
+#openssl enc -aes-256-cbc -d -in $filen | tar cz
+
+openssl enc -aes-256-cbc -d -in $filen | tar xz

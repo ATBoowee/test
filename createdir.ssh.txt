@@ -1,0 +1,25 @@
+#! /bin/bash
+
+echo "Enter the name of the directory you would like to create"
+read dirname
+
+echo "Enter in the chmod permission you would like for this directory"
+read chmodper
+
+echo "Enter the owner you would like for this directory"
+read owndir
+
+echo "Enter the group you would like for this directory"
+read groupdir
+
+mkdir $dirname
+
+chmod $chmodper $dirname
+
+chown $owndir:$groupdir $dirname
+
+#write getfacl line at the end of this script
+
+getfacl $dirname
+
+ls -alH | grep $dirname
